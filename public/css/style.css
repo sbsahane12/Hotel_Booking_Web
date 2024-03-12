@@ -1,0 +1,124 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass {
+    color: red;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brands {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 2rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #bbebee;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400 !important;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+
+/* Default media query for tablets and smaller screens */
+
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+    }
+    .fa-compass {
+        font-size: 1.5rem;
+    }
+    .f-info-links,
+    .f-info-socials,
+    .f-info-brands {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .f-info-socials i {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    .listing-card {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    .card-img-top {
+        border-radius: 0.5rem !important;
+    }
+    .show-img {
+        height: 20vh;
+    }
+    .btns {
+        flex-direction: column;
+    }
+    .show-card {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .add-btn,
+    .edit-btn {
+        width: 100%;
+    }
+}

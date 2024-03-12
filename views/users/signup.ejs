@@ -1,0 +1,42 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <div class="row mt-3">
+            <h1 class="col-6 offset-3 mt-3">Sign Up</h1>
+            <div class="col-6 offset-3">
+                <form method="POST" action="/signup" novalidate class="needs-validation">
+                    <div class="mb-3">
+                        <label class="mt-2 mb-2" for="username">Username</label>
+                        <input name="username" id="username" placeholder="Enter Username" type="text" class="form-control" required />
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <% if (currentUser && currentUser.isAdmin) { %>
+                        <!-- Admin cannot signup message -->
+                        <div class="alert alert-warning" role="alert">
+                            Admin cannot signup!
+                        </div>
+                        <% } else { %>
+                            <!-- Normal user signup form fields -->
+                            <div class="mb-3">
+                                <label class="mt-2 mb-2" for="email">Email</label>
+                                <input name="email" id="email" placeholder="Enter Email" type="email" class="form-control" required />
+                                <div class="invalid-feedback">Please Enter Valid Email!</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="mt-2 mb-2" for="password">Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" name="password" required minlength="8">
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">Show</button>
+                                </div>
+                                <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+                            </div>
+                            <button class="btn btn-outline-danger">Sign Up</button>
+                            <a class="btn btn-outline-danger" href="/login">Sign In</a>
+                            <% } %>
+                </form>
+            </div>
+        </div>
+
+        <!-- Include the JavaScript file -->
+        <script src="/path/to/your/script.js"></script>
+    </body>

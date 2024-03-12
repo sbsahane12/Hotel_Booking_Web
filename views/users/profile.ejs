@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-danger text-white">
+                        <h3 class="mb-0">User Profile</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <i class="fas fa-user-circle fa-5x text-danger"></i>
+                            </div>
+                            <div class="col-md-9">
+                                <p class="mb-1"><strong>User:</strong>
+                                    <%= user.username %>
+                                </p>
+                                <p class="mb-1"><strong>Email:</strong>
+                                    <%= user.email %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% if (!(currentUser && currentUser.role === 'admin')) { %>
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="mb-0">Applied Schemes <i class="fas fa-file-signature"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <% if (user.appliedSchemes.length > 0) { %>
+                                <ul class="list-group">
+                                    <% for (let i = 0; i < user.appliedSchemes.length; i++) { %>
+                                        <li class="list-group-item">
+                                            <b> <%= i+1 %>. <%= user.appliedSchemes[i] %></b>
+                                        </li>
+                                        <% } %>
+                                </ul>
+                                <% } else { %>
+                                    <p>No schemes applied yet.</p>
+                                    <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+    </div>

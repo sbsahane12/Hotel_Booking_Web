@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="container mt-5">
+        <h1 class="mb-4" style="color: red;">Edit User</h1>
+
+        <div class="row">
+            <div class="col-6 offset-3">
+                <form action="/admin/edit/<%= user._id %>?_method=PUT" method="POST" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" value="<%= user.username %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Role</label>
+                        <select class="form-select" id="role" name="role" required>
+                        <option value="normal" <%= user.role === 'normal' ? 'selected' : '' %>>normal</option>
+                        <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>admin</option>
+                    </select>
+                    </div>
+                    <button type="submit" class="btn btn-dark edit-btn mt-3">Update</button>
+                    <a href="/admin" class="btn btn-dark edit-btn mt-3">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>

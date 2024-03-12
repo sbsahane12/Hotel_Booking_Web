@@ -1,0 +1,28 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <h3>Apply for Listing</h3>
+            <form method="POST" action="/listings/<%= listing._id %>/apply" novalidate class="needs-validation">
+                <div class="mb-3">
+                    <label for="applicantName" class="form-label">Your Name</label>
+                    <input name="applicantName" type="text" class="form-control" required />
+                    <div class="invalid-feedback">Please provide your name.</div>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input name="email" type="email" class="form-control" required />
+                    <div class="invalid-feedback">Please provide a valid email address.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea name="message" class="form-control" required></textarea>
+                </div>
+
+                <button class="btn btn-dark mt-3 mb-3">Apply</button>
+            </form>
+        </div>
+    </div>

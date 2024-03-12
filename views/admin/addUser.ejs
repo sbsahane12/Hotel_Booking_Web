@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="container mt-5">
+        <div class="row mt-3">
+            <h1 class="col-6 offset-3 mt-3">Add New User</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-6 offset-3">
+                <form action="/admin/add" method="POST" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" name="password" required minlength="8">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">Show</button>
+                            <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select class="form-control" id="role" name="role" required>
+                        <option value="admin">Admin</option>
+                        <option value="normal">Normal</option>
+                    </select>
+                        <div class="invalid-feedback">Please select a role.</div>
+                    </div>
+                    <button type="submit" class="btn btn-dark edit-btn mt-3">Submit</button>
+                    <a href="/admin" class="btn btn-dark edit-btn mt-3">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>

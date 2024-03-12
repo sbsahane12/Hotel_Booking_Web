@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="container mt-5">
+        <h1 class="mb-4" style="color: red;">Admin Panel - Users</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr style="color: white;">
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Applied Schemes</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach((user, index) => { %>
+                        <tr>
+                            <th scope="row">
+                                <%= index + 1 %>
+                            </th>
+                            <td>
+                                <%= user.username %>
+                            </td>
+                            <td>
+                                <%= user.email %>
+                            </td>
+                            <td>
+                                <% if (user.appliedSchemes.length > 0) { %>
+                                    <ul class="list-unstyled">
+                                        <% user.appliedSchemes.forEach((scheme) => { %>
+                                            <li>
+                                                <%= scheme %>
+                                            </li>
+                                            <% }); %>
+                                    </ul>
+                                    <% } else { %>
+                                        No schemes applied.
+                                        <% } %>
+                            </td>
+                            <td>
+                                <%= user.role %>
+                                    <!-- Display user's role -->
+                            </td>
+                            <td>
+                                <a href="/admin/edit/<%= user._id %>" class="btn btn-primary btn-sm">Edit</a>
+                                <form action="/admin/delete/<%= user._id %>" method="POST" style="display: inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                                <a href="/admin/add" class="btn btn-success btn-sm">Add User</a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
